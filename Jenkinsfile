@@ -8,7 +8,16 @@ pipeline {
     }
     stage('Test') {
       steps {
-        echo 'Hello Test 222'
+        parallel(
+          "Test": {
+            echo 'Hello Test 222'
+            
+          },
+          "Junit": {
+            sh 'sh "mvn clean test"'
+            
+          }
+        )
       }
     }
     stage('Deploy') {
