@@ -9,11 +9,11 @@ pipeline {
     stage('Test') {
       steps {
         parallel(
-          "Test": {
-            echo 'Hello Test 222'
+          "Junit": {
+            echo 'Hello Junit'
             
           },
-          "Junit": {
+          "DBUunit": {
             sh 'sh "mvn clean test"'
             
           }
